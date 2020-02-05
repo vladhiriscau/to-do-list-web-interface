@@ -2,10 +2,11 @@
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    margin: 30px ;
 }
 
 #tasks-table td, #tasks-table th {
-    border: 3px solid #ddd;
+    border: 1px solid #ddd;
     padding: 8px;
 }
 
