@@ -13,6 +13,15 @@ window.ToDoList = {
             })
 
     },
+    deleteTask: function (id) {
+        $.ajax({
+            url: ToDoList.API_BASE_URL + "?id" + id,
+            method: "DELETE"
+        }).done(function (){
+             ToDoList.getTasks();
+        })
+
+    },
 
     createTask:function() {
         let descriptionValue = $("#description-field").val();
@@ -106,7 +115,13 @@ window.ToDoList = {
             ToDoList.updateTask(taskID, checked)
 
 
-        })
+        });
+        $("#tasks-table").delegate(".delete-task", "click", function (event) {
+            event.preventDefault();
+            let taskID = $(this).data("id");
+
+            ToDoList.deleteTask(taskID);
+        });
     }
 
 };
